@@ -72,7 +72,7 @@ export class HomePage implements OnInit {
     this.missionsService.createMission(mission)
     .subscribe((newMission) => {
       this.missions.unshift(newMission);
-      this.presentToast('Your mission was created successfuly');
+      this.presentToast('Your mission was created successfully');
     });
   }
 
@@ -80,7 +80,16 @@ export class HomePage implements OnInit {
     this.missionsService.deleteMission(id)
     .subscribe(() => {
       this.missions.splice(index, 1);
-      this.presentToast('Your mission was deleted successfuly');
+      this.presentToast('Your mission was deleted successfully');
+    });
+  }
+
+  updateMission(id: string) {
+    const mission: Mission = this.missions.find(f => f.id === +id);
+    mission.active = !mission.active;
+    this.missionsService.updateMission(mission)
+    .subscribe(() => {
+      this.presentToast('Your mission was updated successfully');
     });
   }
 

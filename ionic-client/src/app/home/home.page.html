@@ -19,7 +19,7 @@
           <h2>{{ mission.title }}</h2>
           <p><ion-icon name="star-outline"></ion-icon>{{ mission.reward }}</p>
         </ion-label>
-        <ion-checkbox [checked]="mission.active" slot="start"></ion-checkbox>
+        <ion-checkbox [checked]="mission.active" slot="start" (ionChange)="updateMission(mission.id)"></ion-checkbox>
       </ion-item>
       <ion-item-options side="end">
         <ion-item-option (click)="deleteMission(mission.id, index)" color="danger">
