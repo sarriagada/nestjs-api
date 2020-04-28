@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  web:
+    image: node:12.16.1-alpine3.11
+    volumes:
+        - .:/usr/src/angular-client
+    working_dir: /usr/src/angular-client
+    command: npm run start --open
+    ports:
+      - 4200:4200
